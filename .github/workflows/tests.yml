@@ -9,7 +9,6 @@ on:
 env:
   DIR_TESTS: /tmp/tests-migrate-db
   REP_TESTS: https://github.com/alexfromyandex/tests-migrate-db.git
-  
 jobs:
   test_backend:
     runs-on: ubuntu-latest
