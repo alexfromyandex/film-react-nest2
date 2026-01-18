@@ -14,10 +14,10 @@ import { ConfigService } from '@nestjs/config';
         const hostname = url.hostname; // || 'localhost';
         const port = Number(url.port); // || 5432;
         const database = url.pathname.slice(1); // || 'prac';
-        // console.log(url);
-        // console.log('--> ', hostname);
-        // console.log('--> ', port);
-        // console.log('--> ', database);
+        console.log(url);
+        console.log('--> ', hostname);
+        console.log('--> ', port);
+        console.log('--> ', database);
 
         return {
           type: configService.get('DATABASE_DRIVER') as 'postgres',
