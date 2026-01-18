@@ -30,6 +30,8 @@ import { ConfigService } from '@nestjs/config';
           database: database,
           entities: [Film, Schedule],
           synchronize: false,
+          retryAttempts: 10,
+          retryDelay: 3000,
         }
       },
       inject: [ConfigService],
