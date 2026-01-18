@@ -5,6 +5,22 @@ import { Film } from '../films/schemas/film.entity';
 import { Schedule } from '../films/schemas/schedule.entity';
 import { ConfigService } from '@nestjs/config';
 
+import net from 'node:net';
+
+const hostname = '127.0.0.1';
+const port = 5432;
+const socket = net.createConnection(
+  { host: hostname, port: Number(port) },
+  () => {
+    console.log('TCP CONNECT OK', hostname, port);
+    socket.end();
+  },
+);
+
+socket.on('error', (err) => {
+  console.error('TCP CONNECT ERROR', err);
+});
+
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
