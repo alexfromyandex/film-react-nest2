@@ -23,13 +23,13 @@ import { ConfigService } from '@nestjs/config';
 
         return {
           type: 'postgres',
-          host: '127.0.0.1',
-          port: 5432,
-          username: 'postgres',
-          password: 'postgres',
-          database: 'films',
+          host: hostname,
+          port: port,
+          username: configService.get<string>('DATABASE_USERNAME'),
+          password: configService.get<string>('DATABASE_PASSWORD'),
+          database: database,
           entities: [Film, Schedule],
-          synchronize: true,
+          synchronize: false,
           retryAttempts: 10,
           retryDelay: 3000,
         }
