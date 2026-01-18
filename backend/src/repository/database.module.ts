@@ -22,14 +22,14 @@ import { ConfigService } from '@nestjs/config';
         console.log(configService.get<string>('DATABASE_PASSWORD'));
 
         return {
-          type: configService.get('DATABASE_DRIVER') as 'postgres',
+          type: 'postgres',
           host: '127.0.0.1',
-          port: port,
-          username: configService.get<string>('DATABASE_USERNAME'),
-          password: configService.get<string>('DATABASE_PASSWORD'),
-          database: database,
+          port: 5432,
+          username: 'postgres',
+          password: 'postgres',
+          database: 'films',
           entities: [Film, Schedule],
-          synchronize: false,
+          synchronize: true,
           retryAttempts: 10,
           retryDelay: 3000,
         }
